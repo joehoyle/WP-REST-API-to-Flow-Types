@@ -39,26 +39,29 @@ async function get() {
 							if (details.properties && Object.entries(details.properties).length > 0) {
 								value = propertiesToflowProps(details.properties, padding + '    ');
 							} else {
-								value = 'object';
+								value = 'Object';
 							}
 							break;
 					}
 					if (details.enum) {
 						value = details.enum.map(v => `"${v}"`).join(' | ');
 					}
-					return name + ': ' + (optional ? '?' : '') + value;
+					if ( !isNaN(parseFloat(name)) && isFinite(name) ) {
+						name = `'${name}'`;
+					}
+					return name + (optional ? '?' : '') + ': ' + value;
 				})
 				.filter(r => r !== null)
 				.join(',\n' + padding)}\n${padding === '    ' ? '' : padding.substr(-4)}}`;
 		}
 		const flowType = `
-export type ${name} = ${propertiesToflowProps(schema.properties)}
+declare type ${name} = ${propertiesToflowProps(schema.properties)}
 `;
 		types[name] = flowType;
 	});
 
+	console.log('// @flow\n');
 	Object.entries(types).forEach(([name, type]) => console.log(type));
-	console.log(types.Post);
 }
 
 get().then();

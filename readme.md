@@ -15,11 +15,11 @@ This will interpret the meta data about your WordPress REST API and generate the
 For reference, here is the default flow types for a standard WordPress install.
 
 ```js
-export type Post = {
+declare type Post = {
     date: string,
     date_gmt: string,
     guid: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     id: number,
@@ -29,19 +29,19 @@ export type Post = {
     slug: string,
     status: "publish" | "future" | "draft" | "pending" | "private",
     type: string,
-    password: ?string,
+    password?: string,
     title: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     content: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     },
     author: number,
     excerpt: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     },
@@ -49,7 +49,7 @@ export type Post = {
     comment_status: "open" | "closed",
     ping_status: "open" | "closed",
     format: "standard" | "aside" | "chat" | "gallery" | "link" | "image" | "quote" | "status" | "video" | "audio",
-    meta: object,
+    meta: Object,
     sticky: boolean,
     template: "",
     categories: Array<number>,
@@ -57,12 +57,12 @@ export type Post = {
 }
 
 
-export type PostRevision = {
+declare type PostRevision = {
     author: number,
     date: string,
     date_gmt: string,
     guid: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     id: number,
@@ -71,27 +71,27 @@ export type PostRevision = {
     parent: number,
     slug: string,
     title: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     content: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     },
     excerpt: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     }
 }
 
 
-export type Page = {
+declare type Page = {
     date: string,
     date_gmt: string,
     guid: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     id: number,
@@ -101,20 +101,20 @@ export type Page = {
     slug: string,
     status: "publish" | "future" | "draft" | "pending" | "private",
     type: string,
-    password: ?string,
+    password?: string,
     parent: number,
     title: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     content: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     },
     author: number,
     excerpt: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     },
@@ -122,17 +122,17 @@ export type Page = {
     comment_status: "open" | "closed",
     ping_status: "open" | "closed",
     menu_order: number,
-    meta: object,
+    meta: Object,
     template: ""
 }
 
 
-export type PageRevision = {
+declare type PageRevision = {
     author: number,
     date: string,
     date_gmt: string,
     guid: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     id: number,
@@ -141,27 +141,27 @@ export type PageRevision = {
     parent: number,
     slug: string,
     title: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     content: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     },
     excerpt: {
-        raw: ?string,
+        raw?: string,
         rendered: string,
         protected: boolean
     }
 }
 
 
-export type Attachment = {
+declare type Attachment = {
     date: string,
     date_gmt: string,
     guid: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     id: number,
@@ -172,69 +172,69 @@ export type Attachment = {
     status: "publish" | "future" | "draft" | "pending" | "private",
     type: string,
     title: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     author: number,
     comment_status: "open" | "closed",
     ping_status: "open" | "closed",
-    meta: object,
+    meta: Object,
     template: "",
     alt_text: string,
     caption: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     description: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     media_type: "image" | "file",
     mime_type: string,
-    media_details: object,
+    media_details: Object,
     post: number,
     source_url: string
 }
 
 
-export type Type = {
-    capabilities: ?object,
+declare type Type = {
+    capabilities?: Object,
     description: string,
     hierarchical: boolean,
-    labels: ?object,
+    labels?: Object,
     name: string,
     slug: string,
-    supports: ?object,
+    supports?: Object,
     taxonomies: Array<string>,
     rest_base: string
 }
 
 
-export type Status = {
+declare type Status = {
     name: string,
-    private: ?boolean,
-    protected: ?boolean,
+    private?: boolean,
+    protected?: boolean,
     public: boolean,
     queryable: boolean,
-    show_in_list: ?boolean,
+    show_in_list?: boolean,
     slug: string
 }
 
 
-export type Taxonomy = {
-    capabilities: ?object,
+declare type Taxonomy = {
+    capabilities?: Object,
     description: string,
     hierarchical: boolean,
-    labels: ?object,
+    labels?: Object,
     name: string,
     slug: string,
-    show_cloud: ?boolean,
+    show_cloud?: boolean,
     types: Array<string>,
     rest_base: string
 }
 
 
-export type Category = {
+declare type Category = {
     id: number,
     count: number,
     description: string,
@@ -243,11 +243,11 @@ export type Category = {
     slug: string,
     taxonomy: "category" | "post_tag" | "nav_menu" | "link_category" | "post_format",
     parent: number,
-    meta: object
+    meta: Object
 }
 
 
-export type Tag = {
+declare type Tag = {
     id: number,
     count: number,
     description: string,
@@ -255,47 +255,47 @@ export type Tag = {
     name: string,
     slug: string,
     taxonomy: "category" | "post_tag" | "nav_menu" | "link_category" | "post_format",
-    meta: object
+    meta: Object
 }
 
 
-export type User = {
+declare type User = {
     id: number,
-    username: ?string,
+    username?: string,
     name: string,
-    first_name: ?string,
-    last_name: ?string,
-    email: ?string,
+    first_name?: string,
+    last_name?: string,
+    email?: string,
     url: string,
     description: string,
     link: string,
-    locale: ?"" | "en_US",
-    nickname: ?string,
+    locale?: "" | "en_US",
+    nickname?: string,
     slug: string,
-    registered_date: ?string,
-    roles: ?Array<string>,
-    password: ?string,
-    capabilities: ?object,
-    extra_capabilities: ?object,
+    registered_date?: string,
+    roles?: Array<string>,
+    password?: string,
+    capabilities?: Object,
+    extra_capabilities?: Object,
     avatar_urls: {
-        24: string,
-        48: string,
-        96: string
+        '24': string,
+        '48': string,
+        '96': string
     },
-    meta: object
+    meta: Object
 }
 
 
-export type Comment = {
+declare type Comment = {
     id: number,
     author: number,
-    author_email: ?string,
-    author_ip: ?string,
+    author_email?: string,
+    author_ip?: string,
     author_name: string,
     author_url: string,
-    author_user_agent: ?string,
+    author_user_agent?: string,
     content: {
-        raw: ?string,
+        raw?: string,
         rendered: string
     },
     date: string,
@@ -306,15 +306,15 @@ export type Comment = {
     status: string,
     type: string,
     author_avatar_urls: {
-        24: string,
-        48: string,
-        96: string
+        '24': string,
+        '48': string,
+        '96': string
     },
-    meta: object
+    meta: Object
 }
 
 
-export type Settings = {
+declare type Settings = {
     title: string,
     description: string,
     timezone: string,
@@ -328,47 +328,5 @@ export type Settings = {
     posts_per_page: number,
     default_ping_status: "open" | "closed",
     default_comment_status: "open" | "closed"
-}
-
-
-export type Post = {
-    date: string,
-    date_gmt: string,
-    guid: {
-        raw: ?string,
-        rendered: string
-    },
-    id: number,
-    link: string,
-    modified: string,
-    modified_gmt: string,
-    slug: string,
-    status: "publish" | "future" | "draft" | "pending" | "private",
-    type: string,
-    password: ?string,
-    title: {
-        raw: ?string,
-        rendered: string
-    },
-    content: {
-        raw: ?string,
-        rendered: string,
-        protected: boolean
-    },
-    author: number,
-    excerpt: {
-        raw: ?string,
-        rendered: string,
-        protected: boolean
-    },
-    featured_media: number,
-    comment_status: "open" | "closed",
-    ping_status: "open" | "closed",
-    format: "standard" | "aside" | "chat" | "gallery" | "link" | "image" | "quote" | "status" | "video" | "audio",
-    meta: object,
-    sticky: boolean,
-    template: "",
-    categories: Array<number>,
-    tags: Array<number>
 }
 ```
