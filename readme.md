@@ -15,7 +15,6 @@ This will interpret the meta data about your WordPress REST API and generate the
 For reference, here is the default flow types for a standard WordPress install.
 
 ```js
-
 export type Post = {
     date: string,
     date_gmt: string,
@@ -53,8 +52,8 @@ export type Post = {
     meta: object,
     sticky: boolean,
     template: "",
-    categories: Array<integer>,
-    tags: Array<integer>
+    categories: Array<number>,
+    tags: Array<number>
 }
 
 
@@ -369,7 +368,7 @@ export type Post = {
     meta: object,
     sticky: boolean,
     template: "",
-    categories: Array<integer>,
-    tags: Array<integer>
+    categories: Array<number>,
+    tags: Array<number>
 }
 ```

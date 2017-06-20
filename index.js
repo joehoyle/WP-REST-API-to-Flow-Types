@@ -33,7 +33,7 @@ async function get() {
 					let optional = details.context && details.context.indexOf('view') === -1;
 					switch (details.type) {
 						case 'array':
-							value = 'Array<' + details.items.type + '>';
+							value = 'Array<' + typeMap[details.items.type] + '>';
 							break;
 						case 'object':
 							if (details.properties && Object.entries(details.properties).length > 0) {
